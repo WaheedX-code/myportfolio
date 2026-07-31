@@ -5,7 +5,7 @@ const ALERTS = [
   { time: "09:14:07", level: "critical", label: "RULE 15", msg: "Webshell drop flagged on Apache FIM" },
   { time: "09:14:09", level: "ok", label: "HARDENED", msg: "XGBoost model survived HopSkipJump attack" },
   { time: "09:14:11", level: "info", label: "SCAN", msg: "ShieldFlow pipeline: SAST + SCA + secrets clean" },
-  { time: "09:14:13", level: "ok", label: "STATUS", msg: "Available for security engineering roles" },
+  { time: "09:14:13", level: "ok", label: "STATUS", msg: "Available for security engineering, Product Security, AppSec roles" },
 ];
 
 const SKILLS = [
@@ -49,10 +49,10 @@ const EXPERIENCE = [
     org: "Expadox Lab",
     date: "2026 — Present",
     points: [
+      "Led a cross-functional team (Security, DevOps, Cloud) as Security Engineer on OpsShield, a multi-tenant Paystack-integrated ops platform; conducted full-surface threat modeling across 25+ API routes, tracked and drove resolution of 20+ security findings (auth, IDOR, audit-log integrity, payment webhoook handling), and shipped the product to a live production domain within a 3-week deadline", 
       "Independently architected and delivered SecOpsAI, a production-grade SOC detection platform with an adversarially hardened ML model, secured REST API, and automated response pipeline",
       "Independently architected and delivered ShieldFlow, a production-ready open source AppSec pipeline now publicly available on GitHub",
-      "Delivered the FireOps Systems project: full SIEM deployment, multi-agent configuration, AWS CloudTrail integration, and documented attacker simulation",
-      "Engaging in weekly applied tasks spanning threat analysis, SIEM engineering, AppSec pipeline security, and collaborative security projects",
+      "Delivered FireOps Systems project: full SIEM deployment, multi-agent configuration, AWS CloudTrail integration, and documented attacker simulation",
     ],
   },
   {
@@ -76,6 +76,21 @@ const EXPERIENCE = [
 ];
 
 const PROJECTS = [
+  {
+    name: "OpsShield",
+    tagline: "Multi-Tenant Ops & Billing Platform, Security Review & Hardening",
+    stack: ["Node.js", "Express", "PostgreSQL", "Prisma", "JWT", "Redis", "Paystack", "Docker", "Github Actions", "Semgrep", "Trivy", "Gitleaks", "OWASP Dependency-Check"],
+    points: [
+      "Led security for OpsShield, a live, Paystack-integrated multi-tenant ops platform (auth, org/task management, approval workflows, tamper-evident audit log), while coordinating Security, DevOps, and Cloud disciplines ship on a 3-week deadline",
+      "Threat-modeled the full API surface (25+ routes across auth, organisations, tasks, members, and billing), tracking 28 findings through a structured incident log with severity, root cause, and verified fix per item — including cross-referencing security teammates reviews to eliminate duplicate tracking",
+      "Identified and resolved a JWT algorithm-confusion vulnerability, plaintext refresh-token storage, and a broken audit-chain check that falsely reported integrity on a live admin endpoint; triaged a related invite-token finding from a peer review through to resolution",
+      "Found and escalated a horizontal-privilege gap in the task-approval workflow allowing any org member to reassign tasks or bypass approval via direct status manipulation — mapped directly to the project’s named threat model for that feature",
+      "Participated in building and tuning the CI security pipeline (Semgrep SAST , Trivy and OWASP Dependency-Check SCA, Gitleaks secrets scanning with custom rules for JWT/Paystack/DB-credential patterns), defining blocking thresholds and verifying real-world coverage against each tool’s config",
+      "Produced a versioned SBOM (500+ components), CVE tracking, and license-risk assessment as part of a full software-inventory deliverable",
+      "Verified every claimed fix against actual commit diffs rather than commit messages alone, catching at least one case where a fix was reported complete but only partially implemented",
+    ],
+    why: "OpsShield is built for growing African teams, with native Paystack integration that makes billing and plan management work the way local businesses expect. Trust is built into the platform. Every task, approval, and role change is recorded in a tamper-evident, hash-chained audit log, providing verifiable proof that records haven’t been altered. And it’s deliberately simple, task management, approvals, member roles, and billing in one platform, giving growing teams a solution they can adopt immediately without the complexity of enterprise tools.",
+  },
   {
     name: "SecOpsAI",
     tagline: "Adversarial-Resilient SOC Detection Platform",
@@ -107,10 +122,28 @@ const PROJECTS = [
 
 const CASE_FILES = [
   {
+    title: "OpsShield — Multi-Tenant Ops & Billing Platform, Security Review & Hardening",
+    year: "2026",
+    summary: "Led a cross functional team as a Security Engineer for OpsShield, a live Paystack-integrated operations platform, conducting threat modeling, identifying and remediating critical vulnerabilities, and strengthening authorization controls. Also contributed to the DevSecOps pipeline with automated security scanning, SBOM generation, and verification of security fixes to ensure effective remediation.",
+    tags: ["Application Security", "DevSecOps", "Threat Modeling", "Security Engineering"],
+  },
+  {
+    title: "SecOpsAI — Adversarial-Resilient AI Detection Platform",
+    year: "2026",
+    summary: "Built SecOpsAI, an adversarial-resilient SOC detection platform that uses machine learning to detect threats and automate response workflows. Strengthened the model against adversarial attacks while implementing secure APIs, tamper-evident audit logging, and real-time monitoring.",
+    tags: ["Machine Learning Security", "SOC Automation", "Adversarial AI", "Security Engineering"],
+  },
+  {
+    title: "ShieldFlow — Open Source AppSec Pipeline",
+    year: "2026",
+    summary: "Built and open-sourced ShieldFlow, a reusable AppSec pipeline that automates SAST, SCA, secrets detection, vulnerability scanning, and DAST within GitHub Actions. Also developed SOAR integration for automated vulnerability enrichment and streamlined security workflows.",
+    tags: ["DevSecOps", "Application Security", "CI/CD Security"],
+  },
+  {
     title: "FireOps Systems — Centralized Log Management & Threat Detection",
     year: "2026",
-    summary: "Deployed Wazuh SIEM across Windows, Kali, and Ubuntu endpoints, integrated AWS CloudTrail, and ran a solo red-team attack chain that Wazuh detected in real time — including a webshell drop flagged at Rule Level 15 (Critical).",
-    tags: ["Wazuh", "AWS CloudTrail", "Red Team", "MITRE T1110"],
+    summary: "Acted as the sole red team attacker against a Wazuh SIEM environment, executing reconnaissance and credential attacks to evaluate detection capabilities. The SIEM successfully identified the attack chain with high-severity MITRE ATT&CK mappings, while failed privilege escalation attempts confirmed that defensive controls were properly configured and effective.",
+    tags: ["Wazuh", "Red Team", "MITRE T1110"],
   },
   {
     title: "Phishing Detection & Threat Analysis",
