@@ -81,7 +81,7 @@ const PROJECTS = [
     tagline: "Multi-Tenant Ops & Billing Platform, Security Review & Hardening",
     stack: ["Node.js", "Express", "PostgreSQL", "Prisma", "JWT", "Redis", "Paystack", "Docker", "Github Actions", "Semgrep", "Trivy", "Gitleaks", "OWASP Dependency-Check"],
     points: [
-      "Led security for OpsShield, a live, Paystack-integrated multi-tenant ops platform (auth, org/task management, approval workflows, tamper-evident audit log), while coordinating Security, DevOps, and Cloud disciplines ship on a 3-week deadline",
+      "Led the team for OpsShield, a live, Paystack-integrated multi-tenant ops platform (auth, org/task management, approval workflows, tamper-evident audit log), while coordinating Security, DevOps, and Cloud disciplines ship on a 3-week deadline",
       "Threat-modeled the full API surface (25+ routes across auth, organisations, tasks, members, and billing), tracking 28 findings through a structured incident log with severity, root cause, and verified fix per item — including cross-referencing security teammates reviews to eliminate duplicate tracking",
       "Identified and resolved a JWT algorithm-confusion vulnerability, plaintext refresh-token storage, and a broken audit-chain check that falsely reported integrity on a live admin endpoint; triaged a related invite-token finding from a peer review through to resolution",
       "Found and escalated a horizontal-privilege gap in the task-approval workflow allowing any org member to reassign tasks or bypass approval via direct status manipulation — mapped directly to the project’s named threat model for that feature",
